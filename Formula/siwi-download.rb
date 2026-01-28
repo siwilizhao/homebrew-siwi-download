@@ -4,17 +4,25 @@
 class SiwiDownload < Formula
   desc "Downloader with pure HTTP implementation supporting breakpoint continuation"
   homepage "https://github.com/rs-videos/siwi-download"
-  url "https://github.com/rs-videos/siwi-download.git", tag: "v1.0.0", revision: "c19327ad5a1d4e234e1aee7343ac83af5e1be527"
   license "MIT"
   version "1.0.0"
 
-  depends_on "rust" => :build
+  on_macos do
+    on_arm do
+      url "https://github.com/rs-videos/siwi-download/releases/download/v1.0.0/siwi-download-v1.0.0-aarch64-apple-darwin.tar.gz"
+      sha256 "8fb7e0bdf4531246367ecadb6f7ae4d474ff03b601f304c0a2c0be068c83be07"
+    end
+    on_intel do
+      url "https://github.com/rs-videos/siwi-download/releases/download/v1.0.0/siwi-download-v1.0.0-x86_64-apple-darwin.tar.gz"
+      sha256 "REPLACE_WITH_ACTUAL_SHA256"
+    end
+  end
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    bin.install "siwi-download"
   end
 
   test do
-    system "#{bin}/siwi-download", "--version"
+    assert_match version, shell_output("#{bin}/siwi-download --version").strip
   end
 end
