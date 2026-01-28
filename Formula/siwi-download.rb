@@ -7,15 +7,9 @@ class SiwiDownload < Formula
   license "MIT"
   version "1.0.0"
 
-  on_macos do
-    on_arm do
-      url "https://github.com/rs-videos/siwi-download/releases/download/v1.0.0/siwi-download-v1.0.0-aarch64-apple-darwin.tar.gz"
-      sha256 "8fb7e0bdf4531246367ecadb6f7ae4d474ff03b601f304c0a2c0be068c83be07"
-    end
-    on_intel do
-      url "https://github.com/rs-videos/siwi-download/releases/download/v1.0.0/siwi-download-v1.0.0-x86_64-apple-darwin.tar.gz"
-      sha256 "REPLACE_WITH_ACTUAL_SHA256"
-    end
+  bottle do
+    root_url "https://github.com/rs-videos/siwi-download/releases/download/v1.0.0"
+    sha256 arm64: "dfe14c3e53cce0636f277c0ee3744b84400fb85a613ede055d2a2e8b68e710c4"
   end
 
   def install
