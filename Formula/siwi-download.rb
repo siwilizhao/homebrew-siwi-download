@@ -7,10 +7,8 @@ class SiwiDownload < Formula
   license "MIT"
   version "1.0.0"
 
-  bottle do
-    root_url "https://github.com/rs-videos/siwi-download/releases/download/v1.0.0"
-    sha256 arm64: "dfe14c3e53cce0636f277c0ee3744b84400fb85a613ede055d2a2e8b68e710c4"
-  end
+  url "https://github.com/rs-videos/siwi-download/releases/download/v1.0.0/siwi-download-v1.0.0-aarch64-apple-darwin.tar.gz"
+  sha256 "dfe14c3e53cce0636f277c0ee3744b84400fb85a613ede055d2a2e8b68e710c4"
 
   def install
     bin.install "siwi-download"
